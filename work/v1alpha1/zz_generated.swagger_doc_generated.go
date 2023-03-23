@@ -69,4 +69,13 @@ func (ManifestWorkReplicaSetSummary) SwaggerDoc() map[string]string {
 	return map_ManifestWorkReplicaSetSummary
 }
 
+var map_ReferenceWork = map[string]string{
+	"spec":   "Spec reperesents the desired ManifestWork payload and Placement reference to be reconciled",
+	"status": "Status represent the current status of Placing ManifestWork resources",
+}
+
+func (ReferenceWork) SwaggerDoc() map[string]string {
+	return map_ReferenceWork
+}
+
 // AUTO-GENERATED FUNCTIONS END HERE

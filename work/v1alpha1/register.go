@@ -32,6 +32,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(GroupVersion,
 		&ManifestWorkReplicaSet{},
 		&ManifestWorkReplicaSetList{},
+		&ReferenceWork{},
+		&ReferenceWorkList{},
 	)
 
 	metav1.AddToGroupVersion(scheme, GroupVersion)

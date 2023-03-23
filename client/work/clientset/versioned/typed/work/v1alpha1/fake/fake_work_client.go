@@ -16,6 +16,10 @@ func (c *FakeWorkV1alpha1) ManifestWorkReplicaSets(namespace string) v1alpha1.Ma
 	return &FakeManifestWorkReplicaSets{c, namespace}
 }
 
+func (c *FakeWorkV1alpha1) ReferenceWorks(namespace string) v1alpha1.ReferenceWorkInterface {
+	return &FakeReferenceWorks{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeWorkV1alpha1) RESTClient() rest.Interface {
