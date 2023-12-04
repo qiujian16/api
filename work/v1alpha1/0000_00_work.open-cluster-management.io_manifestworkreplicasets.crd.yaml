@@ -325,6 +325,19 @@ spec:
                       description: Name of the Placement resource in the current namespace
                       minLength: 1
                       type: string
+                    override:
+                      properties:
+                        merges:
+                          items:
+                            description: Manifest represents a resource to be deployed
+                              on managed cluster.
+                            type: object
+                            x-kubernetes-embedded-resource: true
+                            x-kubernetes-preserve-unknown-fields: true
+                          type: array
+                        type:
+                          type: string
+                      type: object
                     rolloutStrategy:
                       default:
                         all:
