@@ -253,6 +253,49 @@ spec:
                           - name
                           - resource
                           type: object
+                        statusCheck:
+                          items:
+                            properties:
+                              isDegraded:
+                                items:
+                                  properties:
+                                    expression:
+                                      type: string
+                                    message:
+                                      description: 'Message represents the message
+                                        displayed when validation fails. The message
+                                        is required if the Expression contains line
+                                        breaks. The message must not contain line
+                                        breaks. If unset, the message is "failed rule:
+                                        {Rule}". e.g. "must be a URL with the host
+                                        matching spec.host" If the Expression contains
+                                        line breaks. Message is required. The message
+                                        must not contain line breaks. If unset, the
+                                        message is "failed Expression: {Expression}".'
+                                      type: string
+                                  type: object
+                                type: array
+                              isProgressing:
+                                items:
+                                  properties:
+                                    expression:
+                                      type: string
+                                    message:
+                                      description: 'Message represents the message
+                                        displayed when validation fails. The message
+                                        is required if the Expression contains line
+                                        breaks. The message must not contain line
+                                        breaks. If unset, the message is "failed rule:
+                                        {Rule}". e.g. "must be a URL with the host
+                                        matching spec.host" If the Expression contains
+                                        line breaks. Message is required. The message
+                                        must not contain line breaks. If unset, the
+                                        message is "failed Expression: {Expression}".'
+                                      type: string
+                                  type: object
+                                type: array
+                            type: object
+                          type: array
                         updateStrategy:
                           description: UpdateStrategy defines the strategy to update
                             this manifest. UpdateStrategy is Update if it is not set.

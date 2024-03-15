@@ -97,10 +97,30 @@ type ManifestConfigOption struct {
 	// +optional
 	FeedbackRules []FeedbackRule `json:"feedbackRules,omitempty"`
 
+	StatusCheck []StatusCheck `json:"statusCheck,omitempty"`
+
 	// UpdateStrategy defines the strategy to update this manifest. UpdateStrategy is Update
 	// if it is not set.
 	// +optional
 	UpdateStrategy *UpdateStrategy `json:"updateStrategy,omitempty"`
+}
+
+type StatusCheck struct {
+	IsProgressing []Checker `json:"isProgressing,omitempty"`
+	IsDegraded    []Checker `json:"isDegraded,omitempty"`
+}
+
+type Checker struct {
+	Expression string `json:"expression"`
+	// Message represents the message displayed when validation fails. The message is required if the Expression contains
+	// line breaks. The message must not contain line breaks.
+	// If unset, the message is "failed rule: {Rule}".
+	// e.g. "must be a URL with the host matching spec.host"
+	// If the Expression contains line breaks. Message is required.
+	// The message must not contain line breaks.
+	// If unset, the message is "failed Expression: {Expression}".
+	// +optional
+	Message string `json:"message,omitempty"`
 }
 
 // ManifestWorkExecutor is the executor that applies the resources to the managed cluster. i.e. the

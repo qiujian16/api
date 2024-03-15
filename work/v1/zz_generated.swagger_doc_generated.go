@@ -62,6 +62,14 @@ func (AppliedManifestWorkStatus) SwaggerDoc() map[string]string {
 	return map_AppliedManifestWorkStatus
 }
 
+var map_Checker = map[string]string{
+	"message": "Message represents the message displayed when validation fails. The message is required if the Expression contains line breaks. The message must not contain line breaks. If unset, the message is \"failed rule: {Rule}\". e.g. \"must be a URL with the host matching spec.host\" If the Expression contains line breaks. Message is required. The message must not contain line breaks. If unset, the message is \"failed Expression: {Expression}\".",
+}
+
+func (Checker) SwaggerDoc() map[string]string {
+	return map_Checker
+}
+
 var map_DeleteOption = map[string]string{
 	"propagationPolicy":  "propagationPolicy can be Foreground, Orphan or SelectivelyOrphan SelectivelyOrphan should be rarely used.  It is provided for cases where particular resources is transfering ownership from one ManifestWork to another or another management unit. Setting this value will allow a flow like 1. create manifestwork/2 to manage foo 2. update manifestwork/1 to selectively orphan foo 3. remove foo from manifestwork/1 without impacting continuity because manifestwork/2 adopts it.",
 	"selectivelyOrphans": "selectivelyOrphan represents a list of resources following orphan deletion stratecy",
